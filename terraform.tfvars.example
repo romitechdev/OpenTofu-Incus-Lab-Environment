@@ -1,0 +1,28 @@
+incus_token = "eyJ ..."
+
+vm_list = {
+  "lab-vm-01" = {
+    cpu       = 2
+    memory    = "4GiB"
+    disk      = "20GiB"
+    station   = "station04"
+    pool      = "hdd1"
+    user_data = <<-EOT
+      #cloud-config
+      users:
+        - name: user...
+          groups: sudo
+          shell: /bin/bash
+          sudo: 'ALL=(ALL) NOPASSWD:ALL'
+          passwd: 'hashpass ...'
+          lock_passwd: false
+          ssh_authorized_keys:
+            - "ssh- ..."
+
+      packages:
+        - git
+        - ssh
+    EOT
+  }
+}
+
