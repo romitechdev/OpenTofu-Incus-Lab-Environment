@@ -1,4 +1,4 @@
-# OpenTofu Incus Lab Environment (Lab-Bocil-Bocil)
+# OpenTofu Incus Lab Environment 
 
 This repository contains OpenTofu/Terraform configurations to rapidly provision and manage Incus Virtual Machines for a lab environment.
 
@@ -11,7 +11,7 @@ The configurations use the [`lxc/incus`](https://registry.terraform.io/providers
 - [OpenTofu](https://opentofu.org/) (or Terraform) installed.
 - Access to an Incus server (default configured to `https://192.168.10.15:8443`).
 - An Incus cluster/node with:
-  - The target project created (default: `Lab-Bocil-Bocil`).
+  - The target project created (default: `Default`).
   - A storage pool for the instances (e.g., `hdd1`).
   - A bridged network interface named `br0`.
 
