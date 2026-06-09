@@ -49,14 +49,27 @@ vm_list = {
           groups: sudo
           shell: /bin/bash
           sudo: 'ALL=(ALL) NOPASSWD:ALL'
-          password: 'adminlabrpl'
           lock_passwd: false
+          # Cloud-init memakai hash SHA-512, jadi password plaintext harus diubah dulu.
+          # Contoh generate hash:
+          # python3 -c 'import crypt; print(crypt.crypt("PasswordBaruAnda", crypt.mksalt(crypt.METHOD_SHA512)))'
+          passwd: '$6$rounds=4096$263ZelB29w5O.kZy$rvBZypzvNY1z3PXZffslCnQ7SlINARrLe94Razgf6QSVESvcg24cHLrg9jHeuKh5PGH70TB4jOoaO3oKb4bFB.'
           ssh_authorized_keys:
             - "ssh-ed25519 AAAAC3... user@domain"
     EOT
   }
 }
 ```
+
+## Catatan Password Cloud-Init
+
+Kalau Anda ingin mengaktifkan login password lewat `cloud-init`, isi field `passwd` dengan hash SHA-512, bukan password plain text. Cara mengubah password ke format yang dipakai cloud-init ada di bawah ini.
+
+```bash
+python3 -c 'import crypt; print(crypt.crypt("PasswordBaruAnda", crypt.mksalt(crypt.METHOD_SHA512)))'
+```
+
+Ganti `PasswordBaruAnda` dengan password yang benar-benar ingin dipakai, lalu salin hasil hash ke nilai `passwd`.
 
 ## Usage
 

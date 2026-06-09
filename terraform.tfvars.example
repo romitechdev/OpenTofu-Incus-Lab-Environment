@@ -14,8 +14,8 @@ vm_list = {
           groups: sudo
           shell: /bin/bash
           sudo: 'ALL=(ALL) NOPASSWD:ALL'
-          passwd: 'hashpass ...'
           lock_passwd: false
+          passwd: '$6$rounds=4096$263ZelB29w5O.kZy$rvBZypzvNY1z3PXZffslCnQ7SlINARrLe94Razgf6QSVESvcg24cHLrg9jHeuKh5PGH70TB4jOoaO3oKb4bFB.'
           ssh_authorized_keys:
             - "ssh- ..."
 

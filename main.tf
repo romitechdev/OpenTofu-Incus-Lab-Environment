@@ -3,7 +3,7 @@ resource "incus_instance" "vm" {
 
   name    = each.key
   remote  = "remote-server"
-  project = "Lab-Bocil-Bocil"
+  project = "default"
   type    = "virtual-machine"
   image   = "images:ubuntu/24.04/cloud"
   target  = each.value.station
